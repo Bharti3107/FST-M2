@@ -1,0 +1,20 @@
+# Set the base image
+FROM docker.io/node:18-alpine
+
+	
+# Create a Work Directory
+WORKDIR /usr/app
+
+	
+# COPY Files into the Container
+#src(host path) destination(container path)
+COPY ./ ./
+
+	
+# Download and install a application dependency
+RUN npm install
+
+	
+# The command to run on container startup
+# This will start the NodeJS app
+CMD ["npm" , "start"]
